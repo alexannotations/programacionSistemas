@@ -23,6 +23,7 @@
 
 #include<stdio.h>   // para printf
 #include<stdlib.h> // para instrucción exit
+#include <string.h> // manejo de cadenas
 
 int main(int argc, char *argv[])
 {
@@ -38,7 +39,9 @@ int main(int argc, char *argv[])
         }
         else
         {
-            printf("Argumento [%d]: %s\n", tokens, argv[tokens]);
+            int lenArg = strlen(argv[tokens]);
+            printf("[%d] Longitud: %d \t", tokens, lenArg);
+            printf("Argumento: %s\n", argv[tokens]);
         }
     }
 
