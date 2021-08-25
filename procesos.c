@@ -1,25 +1,36 @@
 /* * * * * * * * * * *
  * Programacion en linux
- * PID, UID y variables de ambiente
- * Linux identifica los procesos a partir de un PID,
- * y los usuarios con UID.
+ * Creación de procesos
+ * 
+ * El programa crea un proceso, de modo que se tendran
+ * dos procesos ejecutándose de manera concurrente.
+ * 
  * 
  * * * * * * * * * * * */
 
 #include<stdio.h>
 #include<sys/types.h>
 
-int main()
+int main(int argc, char *argv[])
 {
-    printf("Identificador de usuario UID: %d\n", getuid());
+    pid_t pid;
+    int i = 0, estado;
 
-    pid_t id_proceso;
-    pid_t id_padre;
-
-    id_proceso = getpid();
-    id_padre = getppid();
-
-    printf("Identificador de proceso: %d\n", id_proceso);
-    printf("Identificador del proceso padre: %d\n", id_padre);
+    pid = fork();
+    switch (pid)
+    {
+    case -1: /* error del fork */
+        perror("Error del fork");
+        break;
+        
+    case 0: /* proceso hijo */
+        printf("Soy el hijo: PID %d; PPID = %d i = %d\n", getpid(), getppid(), ++i);
+        exit(0);
+        break;
+    
+    default: /* proceso padre */
+        printf("Soy el padre: PID %d; PPID = %d i = %d\n", getpid(), getppid(), --i);
+        wait(&estado);
+    }
 
 }
