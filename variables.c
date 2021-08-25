@@ -1,13 +1,13 @@
 /* * * * * * * * * * *
  * Programacion en linux
- * PID, UID y variables de ambiente
- * Linux identifica los procesos a partir de un PID,
- * y los usuarios con UID.
+ * PID, UID y variables de ambiente.
  * 
  * Obseve que podemos acceder a información relacionada con nuestro proceso.
  * Dicha información se encuentra almacenada en un arreglo de cadenas llamado 
  * variables de ambiente. Accediendo a dicho arreglo podemos utilizar dentro de
  * nuestro codigo alguna variable que nos interese.
+ * 'environ' es una varible definida de manera externa a nuestro programa, debe 
+ * encontrarse en los archivos de encabezado.
  * Comandos: 'env' OR 'printenv'
  * 
  * * * * * * * * * * * */
