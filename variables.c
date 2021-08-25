@@ -8,6 +8,7 @@
  * Dicha información se encuentra almacenada en un arreglo de cadenas llamado 
  * variables de ambiente. Accediendo a dicho arreglo podemos utilizar dentro de
  * nuestro codigo alguna variable que nos interese.
+ * Comandos: 'env' OR 'printenv'
  * 
  * * * * * * * * * * * */
 
